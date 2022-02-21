@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.32002.261
+VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shadow_Casting", "Shadow_Casting\Shadow_Casting.csproj", "{9E053582-385A-4202-BB89-6A9C5EEE5D37}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shadow_Casting", "Shadow_Casting\Shadow_Casting.csproj", "{48D8EF82-21C1-47AE-B662-00703664467D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9E053582-385A-4202-BB89-6A9C5EEE5D37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9E053582-385A-4202-BB89-6A9C5EEE5D37}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9E053582-385A-4202-BB89-6A9C5EEE5D37}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9E053582-385A-4202-BB89-6A9C5EEE5D37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48D8EF82-21C1-47AE-B662-00703664467D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48D8EF82-21C1-47AE-B662-00703664467D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48D8EF82-21C1-47AE-B662-00703664467D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48D8EF82-21C1-47AE-B662-00703664467D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {2106CC2E-8360-4380-A7A5-299A74A7334B}
+		SolutionGuid = {7811AF54-722E-469D-B3DB-6F9A3CA6550E}
 	EndGlobalSection
 EndGlobal
