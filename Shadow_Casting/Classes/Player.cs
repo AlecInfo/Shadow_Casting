@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Penumbra;
+
 
 namespace Shadow_Casting
 {
@@ -12,12 +14,21 @@ namespace Shadow_Casting
 
         private float speed = 0.25f;
 
+        public Light light;
+
 
         // Ctor
         public Player(float posX, float posY, float sizeX, float sizeY)
         {
             this.position = new Vector2(posX, posY);
             this.size = new Vector2(sizeX, sizeY);
+
+            this.light = new PointLight
+            {
+                Scale = new Vector2(500),
+                Position = this.position,
+                Radius = 0,
+            };
         }
 
 
@@ -29,23 +40,25 @@ namespace Shadow_Casting
             // mouvement
             if (kbdState.IsKeyDown(Keys.W))
             {
-                position.Y -= this.speed * (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+                this.position.Y -= this.speed * (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             }
 
             if (kbdState.IsKeyDown(Keys.A))
             {
-                position.X -= this.speed * (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+                this.position.X -= this.speed * (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             }
 
             if (kbdState.IsKeyDown(Keys.S))
             {
-                position.Y += this.speed * (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+                this.position.Y += this.speed * (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             }
 
             if (kbdState.IsKeyDown(Keys.D))
             {
-                position.X += this.speed * (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+                this.position.X += this.speed * (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             }
+
+            light.Position = this.position;
         }
 
         public void Draw(SpriteBatch spriteBatch, Texture2D defaultTexture)

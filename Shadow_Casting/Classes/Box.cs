@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Penumbra;
 
 namespace Shadow_Casting
 {
@@ -10,12 +11,20 @@ namespace Shadow_Casting
         public Vector2 position;
         public Vector2 size;
 
+        public Hull hull;
+
 
         // Ctor
         public Box(float posX, float posY, float sizeX, float sizeY)
         {
             this.position = new Vector2(posX, posY);
             this.size = new Vector2(sizeX, sizeY);
+
+            this.hull = new Hull(new Vector2(0.49f), new Vector2(-0.499f, 0.49f), new Vector2(-0.49f), new Vector2(0.49f, -0.49f))
+            {
+                Position = this.position,
+                Scale = this.size,
+            };
         }
 
 
