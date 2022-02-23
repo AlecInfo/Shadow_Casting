@@ -15,10 +15,12 @@ namespace Shadow_Casting
         private PenumbraComponent _penumbra;
 
         public static Texture2D defaultTexture;
+        public static SpriteFont font;
 
         private Player player;
 
-        private List<Box> boxList = new List<Box>();
+        private MapEdit mapEdit = MapEdit.Instance();
+
 
         public Game1()
         {
@@ -43,19 +45,19 @@ namespace Shadow_Casting
             defaultTexture = new Texture2D(_graphics.GraphicsDevice, 1, 1);
             defaultTexture.SetData(new Color[] { Color.White });
 
+            font = Content.Load<SpriteFont>("font");
+
             player = new Player(450, 250, 15, 15);
+            mapEdit.lightList.Add(player.light);
 
-            boxList.Add(new Box(100, 100, 125, 35));
-            boxList.Add(new Box(650, 150, 35, 110));
-            boxList.Add(new Box(250, 250, 50, 50));
-            boxList.Add(new Box(500, 325, 75, 25));
+            mapEdit.buttonList.Add(new Button(defaultTexture, font, new Vector2(5, 5), "add light"));
+            mapEdit.buttonList.Add(new Button(defaultTexture, font, new Vector2(78, 5), "add wall"));
+            mapEdit.buttonList.Add(new Button(defaultTexture, font, new Vector2(149, 5), "move"));
 
-            foreach (Box item in boxList)
-            {
-                _penumbra.Hulls.Add(item.hull);
-            }
+            mapEdit.buttonList[0].Click += mapEdit.BtnAddLight_Click;
+            mapEdit.buttonList[1].Click += mapEdit.BtnAddWall_Click;
+            mapEdit.buttonList[2].Click += mapEdit.BtnMove_Click;
 
-            _penumbra.Lights.Add(player.light);
         }
 
         protected override void Update(GameTime gameTime)
@@ -64,6 +66,26 @@ namespace Shadow_Casting
                 Exit();
 
             player.Update(gameTime);
+
+            mapEdit.Update(gameTime);
+            _penumbra.Hulls.Clear();
+            foreach (Box item in mapEdit.boxList)
+            {
+                _penumbra.Hulls.Add(item.hull);
+            }
+
+            _penumbra.Lights.Clear();
+            foreach (Light item in mapEdit.lightList)
+            {
+                _penumbra.Lights.Add(item);
+            }
+
+            foreach (var item in mapEdit.buttonList)
+            {
+                item.Update(gameTime);
+            }
+
+
 
             base.Update(gameTime);
         }
@@ -80,10 +102,15 @@ namespace Shadow_Casting
             _penumbra.Draw(gameTime);
 
             player.Draw(_spriteBatch, defaultTexture);
-
-            foreach(Box box in boxList)
+            
+            foreach(Box box in mapEdit.boxList)
             {
                 box.Draw(_spriteBatch, defaultTexture);
+            }
+
+            foreach (var item in mapEdit.buttonList)
+            {
+                item.Draw(_spriteBatch);
             }
 
             _spriteBatch.End();

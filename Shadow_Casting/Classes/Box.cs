@@ -20,10 +20,11 @@ namespace Shadow_Casting
             this.position = new Vector2(posX, posY);
             this.size = new Vector2(sizeX, sizeY);
 
-            this.hull = new Hull(new Vector2(0.49f), new Vector2(-0.499f, 0.49f), new Vector2(-0.49f), new Vector2(0.49f, -0.49f))
+            this.hull = new Hull(new Vector2(0.49f), new Vector2(-0.49f, 0.49f), new Vector2(-0.49f), new Vector2(0.49f, -0.49f))
             {
                 Position = this.position,
                 Scale = this.size,
+                Origin = new Vector2(-0.5f)
             };
         }
 
@@ -32,8 +33,8 @@ namespace Shadow_Casting
         public void Draw(SpriteBatch spriteBatch, Texture2D defaultTexture)
         {
             spriteBatch.Draw(defaultTexture,
-                new Rectangle((int)position.X,
-                (int)position.Y, (int)size.X, (int)size.Y), null, new Color(79, 104, 102), 0f, new Vector2(0.5f, 0.5f), SpriteEffects.None, 0f);
+                new Rectangle(
+                    (int)position.X, (int)position.Y, (int)size.X, (int)size.Y), null, new Color(79, 104, 102), 0f, Vector2.Zero, SpriteEffects.None, 0f);
         }
     }
 }

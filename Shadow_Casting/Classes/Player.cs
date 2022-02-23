@@ -25,9 +25,11 @@ namespace Shadow_Casting
 
             this.light = new PointLight
             {
-                Scale = new Vector2(500),
+                Scale = new Vector2(600),
                 Position = this.position,
+                ShadowType = ShadowType.Occluded,
                 Radius = 0,
+                Intensity = 1
             };
         }
 
