@@ -57,6 +57,7 @@ protected override void Draw(GameTime gameTime)
   GraphicsDevice.Clear(Color.CornflowerBlue);
 }
 ```
+<br>
 
 Penumbra supports three types of lights: `PointLight`, `Spotlight`, `TexturedLight`
 
