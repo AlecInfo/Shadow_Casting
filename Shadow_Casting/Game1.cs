@@ -10,16 +10,17 @@ namespace Shadow_Casting
 {
     public class Game1 : Game
     {
-        private GraphicsDeviceManager _graphics;
+        public static GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private PenumbraComponent _penumbra;
 
         public static Texture2D defaultTexture;
         public static SpriteFont font;
+        public static Texture2D bulb;
 
         private Player player;
 
-        private MapEdit mapEdit = MapEdit.Instance();
+        private MapEdit mapEdit;
 
 
         public Game1()
@@ -46,6 +47,11 @@ namespace Shadow_Casting
             defaultTexture.SetData(new Color[] { Color.White });
 
             font = Content.Load<SpriteFont>("font");
+            bulb = Content.Load<Texture2D>("bulb");
+
+
+            mapEdit = MapEdit.Instance(bulb);
+
 
             player = new Player(450, 250, 15, 15);
             mapEdit.lightList.Add(player.light);
@@ -53,10 +59,12 @@ namespace Shadow_Casting
             mapEdit.buttonList.Add(new Button(defaultTexture, font, new Vector2(5, 5), "add light"));
             mapEdit.buttonList.Add(new Button(defaultTexture, font, new Vector2(78, 5), "add wall"));
             mapEdit.buttonList.Add(new Button(defaultTexture, font, new Vector2(149, 5), "move"));
+            mapEdit.buttonList.Add(new Button(defaultTexture, font, new Vector2(201, 5), "delete"));
 
             mapEdit.buttonList[0].Click += mapEdit.BtnAddLight_Click;
             mapEdit.buttonList[1].Click += mapEdit.BtnAddWall_Click;
             mapEdit.buttonList[2].Click += mapEdit.BtnMove_Click;
+            mapEdit.buttonList[3].Click += mapEdit.BtnDelete_Click;
 
         }
 
@@ -86,7 +94,6 @@ namespace Shadow_Casting
             }
 
 
-
             base.Update(gameTime);
         }
 
@@ -108,9 +115,14 @@ namespace Shadow_Casting
                 box.Draw(_spriteBatch, defaultTexture);
             }
 
-            foreach (var item in mapEdit.buttonList)
+            foreach (Button item in mapEdit.buttonList)
             {
                 item.Draw(_spriteBatch);
+            }
+
+            for (int i = 1; i < mapEdit.lightList.Count; i++)
+            {
+                _spriteBatch.Draw(bulb, mapEdit.lightList[i].Position, null, Color.White, 0f, bulb.Bounds.Center.ToVector2(), 0.135f, SpriteEffects.None, 0f);
             }
 
             _spriteBatch.End();

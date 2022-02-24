@@ -15,6 +15,8 @@ namespace Shadow_Casting
         public Vector2 position;
         public string text;
 
+        public Color color;
+
         public bool isHovering = false;
         public event EventHandler Click;
         public bool clicked;
@@ -42,31 +44,33 @@ namespace Shadow_Casting
 
             if (msPosition.Intersects(Size))
             {
-                isHovering = true;
+                this.isHovering = true;
 
                 if (msState.LeftButton == ButtonState.Pressed)
                 {
-                    Click?.Invoke(this, new EventArgs());
+                    this.Click?.Invoke(this, new EventArgs());
                 }
             }
             else
             {
-                isHovering = false;
+                this.isHovering = false;
+            }
+
+            if (this.isHovering)
+            {
+                this.color = Color.LightGray;
+            }
+            else
+            {
+                this.color = Color.Gray;
             }
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            Color color = Color.Gray;
+            spriteBatch.Draw(this.texture, this.Size, this.color);
 
-            if (isHovering)
-            {
-                color = Color.White * 0.5f;
-            }
-
-            spriteBatch.Draw(texture, Size, color);
-
-            spriteBatch.DrawString(font, text, new Vector2(position.X + 5, position.Y + 5), Color.White);
+            spriteBatch.DrawString(this.font, this.text, new Vector2(this.position.X + 5, this.position.Y + 5), Color.White);
         }
 
     }

@@ -14,16 +14,26 @@ namespace Shadow_Casting
         static MapEdit instance;
 
         public bool isMouseClicked = false;
+        public Vector2 mousePosition;
+        Rectangle mouseRectangle;
+
         public bool boxAsBeenAdded = false;
         public bool lightAsBeenAdded = false;
-        public Vector2 mousePosition;
+
         public bool mouseIsInButton = false;
 
+        public int lightSelect;
+        public int boxSelect;
+        public bool isLightSelected = false;
+        public bool isBoxSelected = false;
+
+        private Texture2D _bulbTexture;
         public enum Edit
         {
             None,
             AddWall,
             AddLight,
+            Delete,
             Move
         }
         private Edit _option;
@@ -32,16 +42,16 @@ namespace Shadow_Casting
         public List<Light> lightList = new List<Light>();
         public List<Button> buttonList = new List<Button>();
 
-        protected MapEdit()
+        protected MapEdit(Texture2D bulbTexture)
         {
-
+            this._bulbTexture = bulbTexture;
         }
 
-        public static MapEdit Instance()
+        public static MapEdit Instance(Texture2D bulbTexture)
         {
             if (instance == null)
             {
-                instance = new MapEdit();
+                instance = new MapEdit(bulbTexture);
             }
             return instance;
         }
@@ -50,7 +60,7 @@ namespace Shadow_Casting
         {
             MouseState msState = Mouse.GetState();
             this.mousePosition = msState.Position.ToVector2();
-            var mouseInButton = new Rectangle((int)mousePosition.X, (int)mousePosition.Y, 1, 1);
+            this.mouseRectangle = new Rectangle((int)this.mousePosition.X, (int)this.mousePosition.Y, 0, 0);
 
             // if mouse is pressed
             if (msState.LeftButton == ButtonState.Pressed)
@@ -58,9 +68,9 @@ namespace Shadow_Casting
             else
                 this.isMouseClicked = false;
 
-            foreach (var item in buttonList)
+            foreach (Button item in buttonList)
             {
-                if (mouseInButton.Intersects(item.Size))
+                if (mouseRectangle.Intersects(item.Size))
                 {
                     this.mouseIsInButton = true;
                 }
@@ -79,6 +89,11 @@ namespace Shadow_Casting
                         break;
 
                     case Edit.Move:
+                        Move();
+                        break;
+
+                    case Edit.Delete:
+                        Delete();
                         break;
                 }
             }
@@ -104,8 +119,7 @@ namespace Shadow_Casting
                 }
                 else
                 {
-                    this.boxList[this.boxList.Count - 1].size = this.mousePosition - this.boxList[this.boxList.Count - 1].position;
-                    this.boxList[this.boxList.Count - 1].hull.Scale = this.boxList[this.boxList.Count - 1].size;
+                    this.boxList[this.boxList.Count - 1].Size = this.mousePosition - this.boxList[this.boxList.Count - 1].Position;
                 }    
             }
             else
@@ -126,7 +140,7 @@ namespace Shadow_Casting
                         Position = this.mousePosition,
                         ShadowType = ShadowType.Occluded,
                         Radius = 0,
-                        Intensity = 0.5f
+                        Intensity = 0.5f,
                     });
                     this.lightAsBeenAdded = true;
                 }
@@ -137,19 +151,107 @@ namespace Shadow_Casting
             }
         }
 
+        void Move()
+        {
+            for (int i = 0; i < boxList.Count; i++)
+            {
+                Rectangle itemRectangle = new Rectangle((int)boxList[i].Position.X, (int)boxList[i].Position.Y, (int)boxList[i].Size.X, (int)boxList[i].Size.Y);
+
+                if (this.isMouseClicked && !isBoxSelected)
+                {
+                    if (mouseRectangle.Intersects(itemRectangle))
+                    {
+                        boxSelect = i;
+                        isBoxSelected = true;
+                    }
+                }
+
+                if ((!this.isMouseClicked && this.isBoxSelected) || (this.isMouseClicked && this.isLightSelected))
+                {
+                    isBoxSelected = false;
+                }
+
+
+                if (isBoxSelected)
+                {
+                    boxList[boxSelect].Position = new Vector2(this.mousePosition.X - boxList[boxSelect].Size.X / 2, this.mousePosition.Y - boxList[boxSelect].Size.Y / 2);
+                }
+            }
+
+
+            for (int i = 1; i < lightList.Count; i++)
+            {
+                Rectangle bulbRectangle = new Rectangle((int)(lightList[i].Position.X - _bulbTexture.Height / 2 * 0.135f), (int)(lightList[i].Position.Y - _bulbTexture.Height / 2 * 0.135f), (int)(_bulbTexture.Width * 0.135f), (int)(_bulbTexture.Height * 0.135f));
+
+                if (this.isMouseClicked && !isLightSelected)
+                {
+                    if (mouseRectangle.Intersects(bulbRectangle))
+                    {
+                        lightSelect = i;
+                        isLightSelected = true;
+                    }
+                }
+
+                if ((!this.isMouseClicked && this.isLightSelected) || (this.isMouseClicked && this.isBoxSelected))
+                {
+                    isLightSelected = false;
+                }
+
+
+                if (isLightSelected)
+                {   
+                    lightList[lightSelect].Position = new Vector2(this.mousePosition.X, this.mousePosition.Y);    
+                } 
+            }
+        }
+
+        void Delete()
+        {
+            for (int i = lightList.Count - 1; 0 < i; i--)
+            {
+                Rectangle bulbRectangle = new Rectangle((int)(lightList[i].Position.X - _bulbTexture.Height / 2 * 0.135f), (int)(lightList[i].Position.Y - _bulbTexture.Height / 2 * 0.135f), (int)(_bulbTexture.Width * 0.135f), (int)(_bulbTexture.Height * 0.135f));
+
+                if (this.isMouseClicked && !isLightSelected)
+                {
+                    if (mouseRectangle.Intersects(bulbRectangle))
+                    {
+                        lightList.Remove(lightList[i]);
+                    }
+                }
+            }
+
+            for (int i = boxList.Count - 1; 0 <= i; i--)
+            {
+                Rectangle itemRectangle = new Rectangle((int)boxList[i].Position.X, (int)boxList[i].Position.Y, (int)boxList[i].Size.X, (int)boxList[i].Size.Y);
+
+                if (this.isMouseClicked && !isBoxSelected)
+                {
+                    if (mouseRectangle.Intersects(itemRectangle))
+                    {
+                        boxList.Remove(boxList[i]);
+                    }
+                }
+            }
+        }
+
         public void BtnAddLight_Click(object sender, EventArgs e)
         {
-             _option = Edit.AddLight;
+            this._option = Edit.AddLight;
         }
 
         public void BtnAddWall_Click(object sender, EventArgs e)
         {
-            _option = Edit.AddWall;
+            this._option = Edit.AddWall;
         }
 
         public void BtnMove_Click(object sender, EventArgs e)
         {
-            _option = Edit.Move;
+            this._option = Edit.Move;
+        }
+
+        public void BtnDelete_Click(object sender, EventArgs e)
+        {
+            this._option = Edit.Delete;
         }
     }
 }

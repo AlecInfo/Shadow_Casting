@@ -8,22 +8,38 @@ namespace Shadow_Casting
     class Box
     {
         // Attributs
-        public Vector2 position;
-        public Vector2 size;
+        private Vector2 _position;
+        private Vector2 _size;
 
         public Hull hull;
+
+        public Vector2 Position { 
+            get => this._position;
+            set {
+                this._position = value;
+                this.hull.Position = value;
+            } 
+        }
+
+        public Vector2 Size {
+            get => this._size;
+            set {
+                this._size = value;
+                this.hull.Scale = value;
+            }
+        }
 
 
         // Ctor
         public Box(float posX, float posY, float sizeX, float sizeY)
         {
-            this.position = new Vector2(posX, posY);
-            this.size = new Vector2(sizeX, sizeY);
+            this._position = new Vector2(posX, posY);
+            this._size = new Vector2(sizeX, sizeY);
 
             this.hull = new Hull(new Vector2(0.49f), new Vector2(-0.49f, 0.49f), new Vector2(-0.49f), new Vector2(0.49f, -0.49f))
             {
-                Position = this.position,
-                Scale = this.size,
+                Position = this._position,
+                Scale = this._size,
                 Origin = new Vector2(-0.5f)
             };
         }
@@ -34,7 +50,7 @@ namespace Shadow_Casting
         {
             spriteBatch.Draw(defaultTexture,
                 new Rectangle(
-                    (int)position.X, (int)position.Y, (int)size.X, (int)size.Y), null, new Color(79, 104, 102), 0f, Vector2.Zero, SpriteEffects.None, 0f);
+                    (int)_position.X, (int)_position.Y, (int)_size.X, (int)_size.Y), null, new Color(79, 104, 102), 0f, Vector2.Zero, SpriteEffects.None, 0f);
         }
     }
 }
