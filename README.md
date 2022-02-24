@@ -25,8 +25,8 @@ Install-Package MonoGame.Penumbra.WindowsDX
 <br>
 4. Créer le projet Monogame
 5. <br>
-<p align="center">
-  <img src="https://github.com/AlecInfo/Shadow_Casting/blob/master/Documentation/CreateProjectMonogame.png" alt="Gameplay">
+<p >
+  <img src="https://github.com/AlecInfo/Shadow_Casting/blob/master/Documentation/CreateProjectMonogame.png" alt="Gameplay" Width="640" Height="360">
 </p>
 <br>
 6. Begin to code
