@@ -13,21 +13,22 @@ est un Package C# conçu pour [Monogame](https://www.monogame.net/), qui a pour 
 <p align="center">
   <img src="https://github.com/AlecInfo/Shadow_Casting/blob/master/Documentation/InstallNuGet.png" alt="NuGet" Height="360">
 </p>
-<br>
 3. Mettre la commande
 
 ```shell
 Install-Package MonoGame.Penumbra.WindowsDX
 ```
-<br>
 <p align="center">
   <img src="https://github.com/AlecInfo/Shadow_Casting/blob/master/Documentation/InstallPackage.png" alt="Install Package" Height="340">
 </p>
-<br>
 4. Créer le projet Monogame
 5. <br>
 <p align="center">
   <img src="https://github.com/AlecInfo/Shadow_Casting/blob/master/Documentation/CreateProjectMonogame.png" alt="Create monogame project" Height="360">
 </p>
-<br>
 6. Begin to code
+Add the using
+
+```c#
+using Penumbra;
+``` 
