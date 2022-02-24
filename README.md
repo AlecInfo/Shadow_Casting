@@ -12,7 +12,7 @@ est un Package C# conçu pour [Monogame](https://www.monogame.net/), qui a pour 
 > Aller dans Vidual Studio 2019 > Outils > Gestionnaire de package NuGet
 > <br>
 <p align="center">
-  <img src="https://github.com/AlecInfo/Shadow_Casting/blob/master/Documentation/InstallNuGet.png" alt="NuGet" Height="360">
+  <img src="https://github.com/AlecInfo/Shadow_Casting/blob/master/Documentation/InstallNuGet.png" alt="NuGet" Height="300">
 </p>
 
 3. Mettre la commande
@@ -21,14 +21,14 @@ est un Package C# conçu pour [Monogame](https://www.monogame.net/), qui a pour 
 Install-Package MonoGame.Penumbra.WindowsDX
 ```
 <p align="center">
-  <img src="https://github.com/AlecInfo/Shadow_Casting/blob/master/Documentation/InstallPackage.png" alt="Install Package" Height="340">
+  <img src="https://github.com/AlecInfo/Shadow_Casting/blob/master/Documentation/InstallPackage.png" alt="Install Package" Height="280">
 </p>
 
 4. Créer le projet Monogame
 
 <br>
 <p align="center">
-  <img src="https://github.com/AlecInfo/Shadow_Casting/blob/master/Documentation/CreateProjectMonogame.png" alt="Create monogame project" Height="360">
+  <img src="https://github.com/AlecInfo/Shadow_Casting/blob/master/Documentation/CreateProjectMonogame.png" alt="Create monogame project" Height="300">
 </p>
 
 6. Begin to code
