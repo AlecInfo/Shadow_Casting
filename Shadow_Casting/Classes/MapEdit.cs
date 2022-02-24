@@ -103,11 +103,6 @@ namespace Shadow_Casting
             }
         }
 
-        public void Draw(SpriteBatch spriteBatch)
-        {
-
-        }
-
         void AddWall()
         {
             if (this.isMouseClicked)

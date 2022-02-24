@@ -53,7 +53,7 @@ namespace Shadow_Casting
             mapEdit = MapEdit.Instance(bulb);
 
 
-            player = new Player(450, 250, 15, 15);
+            player = new Player(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2, 15, 15);
             mapEdit.lightList.Add(player.light);
 
             mapEdit.buttonList.Add(new Button(defaultTexture, font, new Vector2(5, 5), "add light"));
@@ -102,7 +102,6 @@ namespace Shadow_Casting
             _penumbra.BeginDraw();
 
             GraphicsDevice.Clear(Color.White);
-
 
             _spriteBatch.Begin();
 
