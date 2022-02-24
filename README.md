@@ -43,7 +43,6 @@ PenumbraComponent penumbra;
 
 public Game1()
 {
-  // ...
   penumbra = new PenumbraComponent(this);
   Components.Add(penumbra);
 }
