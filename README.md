@@ -30,11 +30,30 @@ Install-Package MonoGame.Penumbra.WindowsDX
   <img src="https://github.com/AlecInfo/Shadow_Casting/blob/master/Documentation/CreateProjectMonogame.png" alt="Create monogame project" Height="300">
 </p>
 
-6. Begin to code
+## Utilisation
 
 Ajoutez le using pour pouvoir avoir acces a toutes les fonctionnalitées de penumbra
-```c#
+```cs
 using Penumbra;
 ``` 
 
-##Utilisation
+Créer le composant de penumbra
+```cs
+PenumbraComponent penumbra;
+
+public Game1()
+{
+  // ...
+  penumbra = new PenumbraComponent(this);
+  Components.Add(penumbra);
+}
+```
+
+Ajouter le BeginDraw pour penumbra
+```cs
+protected override void Draw(GameTime gameTime)
+{
+  penumbra.BeginDraw();
+  GraphicsDevice.Clear(Color.CornflowerBlue);
+}
+```
