@@ -26,7 +26,6 @@ Install-Package MonoGame.Penumbra.WindowsDX
 
 4. Créer le projet Monogame
 
-<br>
 <p>
   <img src="https://github.com/AlecInfo/Shadow_Casting/blob/master/Documentation/CreateProjectMonogame.png" alt="Create monogame project" Height="300">
 </p>
@@ -38,4 +37,4 @@ Ajoutez le using pour pouvoir avoir acces a toutes les fonctionnalitées de penu
 using Penumbra;
 ``` 
 
-
+##Utilisation
