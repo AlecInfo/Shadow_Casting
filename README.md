@@ -15,12 +15,13 @@ est un Package C# conçu pour [Monogame](https://www.monogame.net/), qui a pour 
 </p>
 <br>
 3. Mettre la commande
+
 ```shell
 Install-Package MonoGame.Penumbra.WindowsDX
 ```
 <br>
 <p align="center">
-  <img src="https://github.com/AlecInfo/Shadow_Casting/blob/master/Documentation/InstallPackage.png" alt="Install Package" Height="360">
+  <img src="https://github.com/AlecInfo/Shadow_Casting/blob/master/Documentation/InstallPackage.png" alt="Install Package" Height="340">
 </p>
 <br>
 4. Créer le projet Monogame
