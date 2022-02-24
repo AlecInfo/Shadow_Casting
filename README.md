@@ -11,7 +11,7 @@ est un Package C# conçu pour [Monogame](https://www.monogame.net/), qui a pour 
 > Aller dans Vidual Studio 2019 > Outils > Gestionnaire de package NuGet
 > <br>
 <p align="center">
-  <img src="https://github.com/AlecInfo/BugsDestroyer/blob/master/Doc/GifTroKoul.gif?raw=true" alt="Gameplay" Width="640" Height="360">
+  <img src="https://github.com/AlecInfo/Shadow_Casting/blob/master/Documentation/InstallNuGet.png" alt="NuGet" Height="360">
 </p>
 <br>
 3. Mettre la commande
@@ -20,13 +20,13 @@ Install-Package MonoGame.Penumbra.WindowsDX
 ```
 <br>
 <p align="center">
-  <img src="https://github.com/AlecInfo/Shadow_Casting/blob/master/Documentation/InstallPackage.png" alt="Gameplay">
+  <img src="https://github.com/AlecInfo/Shadow_Casting/blob/master/Documentation/InstallPackage.png" alt="Install Package" Height="360">
 </p>
 <br>
 4. Créer le projet Monogame
 5. <br>
 <p align="center">
-  <img src="https://github.com/AlecInfo/Shadow_Casting/blob/master/Documentation/CreateProjectMonogame.png" alt="Gameplay" Height="360">
+  <img src="https://github.com/AlecInfo/Shadow_Casting/blob/master/Documentation/CreateProjectMonogame.png" alt="Create monogame project" Height="360">
 </p>
 <br>
 6. Begin to code
