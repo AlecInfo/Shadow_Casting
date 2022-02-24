@@ -26,14 +26,16 @@ Install-Package MonoGame.Penumbra.WindowsDX
 
 4. Créer le projet Monogame
 
-5. <br>
+<br>
 <p align="center">
   <img src="https://github.com/AlecInfo/Shadow_Casting/blob/master/Documentation/CreateProjectMonogame.png" alt="Create monogame project" Height="360">
 </p>
 
 6. Begin to code
 
-Add the using
+Ajoutez le using pour pouvoir avoir acces a toutes les fonctionnalitées de penumbra
 ```c#
 using Penumbra;
 ``` 
+
+
