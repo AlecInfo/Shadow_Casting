@@ -1,6 +1,6 @@
 ﻿/********************************
  * Projet : Shadow Casting
- * Description : Prooft of concept of 13th Haunted Street 
+ * Description : Proof of concept of 13th Haunted Street 
  *  to experiment penumbra https://github.com/AlecInfo/13th_Haunted_Street
  * 
  * Date : 28/02/2022
