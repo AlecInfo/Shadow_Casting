@@ -57,6 +57,7 @@ protected override void Draw(GameTime gameTime)
 <br>
 
 Penumbra supports three types of lights: `PointLight`, `Spotlight`, `TexturedLight`
+
 ![PointLight](https://github.com/discosultan/penumbra/raw/master/Documentation/PointLight.png)
 ![Spotlight](https://github.com/discosultan/penumbra/raw/master/Documentation/Spotlight.png)
 ![TexturedLight](https://github.com/discosultan/penumbra/blob/master/Documentation/TexturedLight.png)
