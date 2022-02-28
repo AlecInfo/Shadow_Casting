@@ -1,4 +1,14 @@
-﻿using Microsoft.Xna.Framework;
+﻿/********************************
+ * Projet : Shadow Casting
+ * Description : Prooft of concept of 13th Haunted Street 
+ *  to experiment penumbra https://github.com/AlecInfo/13th_Haunted_Street
+ * 
+ * Date : 28/02/2022
+ * Version : 1.0
+ * Auteur : Rodrigues Marques Marco, Piette Alec, Arcidiacono Jérémie, Viera Luis David
+*******************************/
+
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Penumbra;
@@ -23,6 +33,7 @@ namespace Shadow_Casting
             this.position = new Vector2(posX, posY);
             this.size = new Vector2(sizeX, sizeY);
 
+            // Create light who to follow the player
             this.light = new PointLight
             {
                 Scale = new Vector2(600),
@@ -39,7 +50,7 @@ namespace Shadow_Casting
         {
             KeyboardState kbdState = Keyboard.GetState();
 
-            // mouvement
+            // Mouvements
             if (kbdState.IsKeyDown(Keys.W))
             {
                 this.position.Y -= this.speed * (float)gameTime.ElapsedGameTime.TotalMilliseconds;
@@ -65,6 +76,7 @@ namespace Shadow_Casting
 
         public void Draw(SpriteBatch spriteBatch, Texture2D defaultTexture)
         {
+            // Draw player
             spriteBatch.Draw(defaultTexture, 
                 new Rectangle((int)position.X,
                 (int)position.Y, (int)size.X, (int)size.Y), null, Color.LightSlateGray, 0f, new Vector2(0.5f, 0.5f), SpriteEffects.None, 0f);

@@ -1,4 +1,14 @@
-﻿using Microsoft.Xna.Framework;
+﻿/********************************
+ * Projet : Shadow Casting
+ * Description : Prooft of concept of 13th Haunted Street 
+ *  to experiment penumbra https://github.com/AlecInfo/13th_Haunted_Street
+ * 
+ * Date : 28/02/2022
+ * Version : 1.0
+ * Auteur : Rodrigues Marques Marco, Piette Alec, Arcidiacono Jérémie, Viera Luis David
+*******************************/
+
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Penumbra;
@@ -36,6 +46,7 @@ namespace Shadow_Casting
             this._position = new Vector2(posX, posY);
             this._size = new Vector2(sizeX, sizeY);
 
+            // Create the wall
             this.hull = new Hull(new Vector2(0.49f), new Vector2(-0.49f, 0.49f), new Vector2(-0.49f), new Vector2(0.49f, -0.49f))
             {
                 Position = this._position,
@@ -48,6 +59,7 @@ namespace Shadow_Casting
         // Methods
         public void Draw(SpriteBatch spriteBatch, Texture2D defaultTexture)
         {
+            // Draw the wall
             spriteBatch.Draw(defaultTexture,
                 new Rectangle(
                     (int)_position.X, (int)_position.Y, (int)_size.X, (int)_size.Y), null, new Color(79, 104, 102), 0f, Vector2.Zero, SpriteEffects.None, 0f);
