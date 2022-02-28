@@ -1,21 +1,19 @@
 # Shadow_Casting
-Sous projet de [13th Haunted Street](https://github.com/AlecInfo/13th_Haunted_Street), qui a pour but d'expérimenter [Penumbra](https://github.com/discosultan/penumbra). Penumbra 
-est un Package C# conçu pour [Monogame](https://www.monogame.net/), qui a pour but de créer des ombres et des lumières.
-
+Proof of concept of [13th Haunted Street](https://github.com/AlecInfo/13th_Haunted_Street), which aims to experience [Penumbra](https://github.com/discosultan/penumbra). Penumbra is a C# package designed for [Monogame](https://www.monogame.net/), which aims to create shadows and lights.
 
 ## Installation
 
 1. [DirectX End-User Runtimes (June 2010)](https://www.microsoft.com/en-us/download/details.aspx?id=8109)
-> DirectX est utile pour compiler les effects sheder
+> DirectX is useful for compiling effects sheder
 
-2. Ajouter un NuGet
-> Aller dans Vidual Studio 2019 > Outils > Gestionnaire de package NuGet
+2. Add a NuGet
+> Go to Vidual Studio 2019 > Tools > NuGet Package Manager
 > <br>
 <p>
   <img src="https://github.com/AlecInfo/Shadow_Casting/blob/master/Documentation/InstallNuGet.png" alt="NuGet" Height="300">
 </p>
 
-3. Mettre la commande
+3. Put the order
 
 ```shell
 Install-Package MonoGame.Penumbra.WindowsDX
@@ -24,20 +22,20 @@ Install-Package MonoGame.Penumbra.WindowsDX
   <img src="https://github.com/AlecInfo/Shadow_Casting/blob/master/Documentation/InstallPackage.png" alt="Install Package" Height="280">
 </p>
 
-4. Créer le projet Monogame
+4. Create a new Monogame project
 
 <p>
   <img src="https://github.com/AlecInfo/Shadow_Casting/blob/master/Documentation/CreateProjectMonogame.png" alt="Create monogame project" Height="300">
 </p>
 
-## Utilisation
+## Use
 
-Ajoutez le using pour pouvoir avoir acces a toutes les fonctionnalitées de penumbra
+Add the using to be able to access all the features of penumbra
 ```cs
 using Penumbra;
 ``` 
 
-Créer le composant de penumbra
+Create penumbra component
 ```cs
 PenumbraComponent penumbra;
 
@@ -48,7 +46,7 @@ public Game1()
 }
 ```
 
-Ajouter le BeginDraw pour penumbra
+Add the BeginDraw for penumbra
 ```cs
 protected override void Draw(GameTime gameTime)
 {
