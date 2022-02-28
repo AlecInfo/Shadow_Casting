@@ -10,7 +10,7 @@ Proof of concept of [13th Haunted Street](https://github.com/AlecInfo/13th_Haunt
 > Go to Vidual Studio 2019 > Tools > NuGet Package Manager
 > <br>
 <p>
-  <img src="https://github.com/AlecInfo/Shadow_Casting/blob/master/Documentation/InstallNuGet.png" alt="NuGet" Height="300">
+  <img src="/Documentation/InstallNuGet.png" alt="NuGet" Height="300">
 </p>
 
 3. Put the order
@@ -19,13 +19,13 @@ Proof of concept of [13th Haunted Street](https://github.com/AlecInfo/13th_Haunt
 Install-Package MonoGame.Penumbra.WindowsDX
 ```
 <p>
-  <img src="https://github.com/AlecInfo/Shadow_Casting/blob/master/Documentation/InstallPackage.png" alt="Install Package" Height="280">
+  <img src="/Documentation/InstallPackage.png" alt="Install Package" Height="280">
 </p>
 
 4. Create a new Monogame project
 
 <p>
-  <img src="https://github.com/AlecInfo/Shadow_Casting/blob/master/Documentation/CreateProjectMonogame.png" alt="Create monogame project" Height="300">
+  <img src="/Documentation/CreateProjectMonogame.png" alt="Create monogame project" Height="300">
 </p>
 
 ## Use
