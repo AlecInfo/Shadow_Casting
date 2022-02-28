@@ -1,5 +1,5 @@
 # Shadow_Casting
-Under project of [13th Haunted Street](https://github.com/AlecInfo/13th_Haunted_Street), which aims to experience [Penumbra](https://github.com/discosultan/penumbra). Penumbra is a C# package designed for [Monogame](https://www.monogame.net/), which aims to create shadows and lights.
+Proof of concept of [13th Haunted Street](https://github.com/AlecInfo/13th_Haunted_Street), which aims to experience [Penumbra](https://github.com/discosultan/penumbra). Penumbra is a C# package designed for [Monogame](https://www.monogame.net/), which aims to create shadows and lights.
 
 ## Installation
 
