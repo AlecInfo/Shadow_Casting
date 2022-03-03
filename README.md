@@ -4,7 +4,7 @@ Proof of concept of [13th Haunted Street](https://github.com/AlecInfo/13th_Haunt
 ## Installation
 
 1. [DirectX End-User Runtimes (June 2010)](https://www.microsoft.com/en-us/download/details.aspx?id=8109)
-> DirectX is usefull for compiling effects shader
+> DirectX is usefull for compiling effects shaders
 
 2. Add a NuGet
 > Go to Visual Studio 2019 > Tools > NuGet Package Manager
