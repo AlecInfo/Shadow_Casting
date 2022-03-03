@@ -7,7 +7,7 @@ Proof of concept of [13th Haunted Street](https://github.com/AlecInfo/13th_Haunt
 > DirectX is usefull for compiling effects shader
 
 2. Add a NuGet
-> Go to Vidual Studio 2019 > Tools > NuGet Package Manager
+> Go to Visual Studio 2019 > Tools > NuGet Package Manager
 > <br>
 <p>
   <img src="/Documentation/InstallNuGet.png" alt="NuGet" Height="300">
